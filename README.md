@@ -1,6 +1,6 @@
 # Porsche Sales Dashboard
 
-Dashboard interativo desenvolvido por **Camila Ribeiro** no contexto do bootcamp **Santander – Excel com IA e Claude**, da DIO. A análise usa exclusivamente os 100 registros da base fornecida e permite explorar modelos, anos-modelo, cidades e pagamentos.
+Dashboard interativo de análise comercial de veículos Porsche, com indicadores de volume e valor dos pedidos, comparação entre modelos e estados e distribuição por ano-modelo. Os filtros combináveis permitem explorar cidades, períodos e métodos de pagamento, enquanto os gráficos, insights e a tabela de detalhes ajudam a identificar concentrações e acompanhar a situação dos pedidos.
 
 **[Abrir a dashboard publicada](https://camisarp.github.io/porsche-sales-dashboard/)**
 
@@ -131,6 +131,6 @@ Publicação: GitHub Pages, branch `main`, diretório raiz. O histórico anterio
 
 ## Créditos
 
-Autoria do projeto: **Camila Ribeiro**. Contexto educacional: Santander e DIO. Fotografia ilustrativa do Cayenne Coupé S: [Caradisiac](https://www.caradisiac.com/porsche-cayenne-coupe-maintenant-en-s-de-440-ch-176344.htm); não integra a base de vendas nem representa uma unidade específica.
+Contexto educacional: Santander e DIO. Fotografia ilustrativa do Cayenne Coupé S: [Caradisiac](https://www.caradisiac.com/porsche-cayenne-coupe-maintenant-en-s-de-440-ch-176344.htm); não integra a base de vendas nem representa uma unidade específica.
 
 Projeto educacional independente, sem vínculo oficial com a Porsche. Os dados do exercício não permitem inferir participação de mercado, causalidade ou tendências da população.
