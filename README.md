@@ -98,7 +98,11 @@ O teste automatizado executa a lógica JavaScript do HTML e verifica: total inic
 
 Exemplo reproduzível: **City = Atlanta → 3 registros não cancelados**.
 
-**Prints pendentes:** a captura automática não pôde ser concluída porque o navegador local não estava disponível. Para complementar o portfólio, capturar a visão geral e o recorte City = Atlanta na dashboard publicada. Não foram inseridas imagens simuladas como evidência de execução.
+A versão publicada também foi aberta no navegador remoto. O filtro City = Atlanta foi aplicado e retornou 3 registros, valor total de US$ 434.800 e ano-modelo líder 2025.
+
+![Visão geral da dashboard publicada](imagens/dashboard-geral.jpg)
+
+![Filtro City = Atlanta na dashboard publicada](imagens/filtro-atlanta.jpg)
 
 ## Estrutura e execução
 
@@ -106,6 +110,9 @@ Exemplo reproduzível: **City = Atlanta → 3 registros não cancelados**.
 porsche-sales-dashboard/
 ├── index.html
 ├── dados_sanitizados.json
+├── imagens/
+│   ├── dashboard-geral.jpg
+│   └── filtro-atlanta.jpg
 ├── testes/
 │   └── dashboard.test.cjs
 └── README.md
