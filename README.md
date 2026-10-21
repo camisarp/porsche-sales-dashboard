@@ -56,19 +56,18 @@ Os dados foram convertidos para JSON e incorporados ao HTML. `dados_sanitizados.
 
 ## Processo com IA: prompt e evolução
 
-### Pedido inicial
+### Pedido inicial (trecho)
 
-> Utilizando o recurso de canvas, renderize uma dashboard em HTML ao lado. Inclua filtros por modelo da Porsche, Model Year, City e Pay method. Responda quais os principais modelos vendidos por cidade, qual ano-modelo teve maior saída em um período e apresente insights de vendas por cidade. Baseie o UI/UX no site oficial da Porsche Brasil, com um ar elegante e refinado.
+> Utilizando o recurso de canvas, renderize uma dashboard em HTML ao lado. Inclua filtros por modelo da Porsche, Model Year, City e Pay method. Responda quais os principais modelos vendidos por cidade, qual ano-modelo teve maior saída em um período e apresente insights de vendas por cidade. Use um visual elegante e refinado.
 
 ### O que mudou até a versão final
 
-1. A dashboard da [DIO](https://digitalinnovationone.github.io/dashboard_porsche_sales/) passou a ser referência de organização visual e componentes.
-2. A distribuição por ano-modelo foi ajustada para rosca conforme referência enviada; a comparação geográfica principal passou para estados com quantidade e valor em dois eixos.
-3. As perguntas foram refinadas após analisar a baixa quantidade de observações por cidade.
-4. Foram acrescentados alternância de métrica no ranking de modelos, período, Somente entregues, pagamentos e status.
-5. A foto do cabeçalho passou a representar o Cayenne Coupé, um dos cinco modelos empatados com 4 registros não cancelados. A foto ilustra uma versão S, não um veículo específico da base.
-6. A paleta dourada da referência foi substituída por grafite, branco, vermelho e prata, dando identidade própria ao projeto.
-7. O cabeçalho da tabela foi corrigido para manter títulos alinhados às colunas e permitir rolagem horizontal em telas menores.
+1. A distribuição por ano-modelo foi ajustada para rosca; a comparação geográfica principal passou para estados com quantidade e valor em dois eixos.
+2. As perguntas foram refinadas após analisar a baixa quantidade de observações por cidade.
+3. Foram acrescentados alternância de métrica no ranking de modelos, período, Somente entregues, pagamentos e status.
+4. A foto do cabeçalho passou a representar o Cayenne Coupé, um dos cinco modelos empatados com 4 registros não cancelados. A foto ilustra uma versão S, não um veículo específico da base.
+5. A paleta foi definida em grafite, branco, vermelho e prata, dando identidade própria ao projeto.
+6. O cabeçalho da tabela foi corrigido para manter títulos alinhados às colunas e permitir rolagem horizontal em telas menores.
 
 ### Prompt consolidado para reproduzir a direção final
 
@@ -100,9 +99,13 @@ Exemplo reproduzível: **City = Atlanta → 3 registros não cancelados**.
 
 A versão publicada também foi aberta no navegador remoto. O filtro City = Atlanta foi aplicado e retornou 3 registros, valor total de US$ 434.800 e ano-modelo líder 2025.
 
-![Visão geral da dashboard publicada](imagens/dashboard-geral.jpg)
+<p align="center">
+  <img src="imagens/dashboard-geral.jpg" alt="Visão geral da dashboard publicada" width="600">
+</p>
 
-![Filtro City = Atlanta na dashboard publicada](imagens/filtro-atlanta.jpg)
+<p align="center">
+  <img src="imagens/filtro-atlanta.jpg" alt="Dashboard com filtro City = Atlanta" width="600">
+</p>
 
 ## Estrutura e execução
 
@@ -126,6 +129,6 @@ Publicação: GitHub Pages, branch `main`, diretório raiz. O histórico anterio
 
 ## Créditos
 
-Autoria do projeto: **Camila Ribeiro**. Contexto educacional: Santander e DIO. Referências: [Porsche Brasil](https://www.porsche.com/brazil/pt/) e dashboard da DIO. Fotografia ilustrativa do Cayenne Coupé S: [Caradisiac](https://www.caradisiac.com/porsche-cayenne-coupe-maintenant-en-s-de-440-ch-176344.htm); não integra a base de vendas nem representa uma unidade específica.
+Autoria do projeto: **Camila Ribeiro**. Contexto educacional: Santander e DIO. Fotografia ilustrativa do Cayenne Coupé S: [Caradisiac](https://www.caradisiac.com/porsche-cayenne-coupe-maintenant-en-s-de-440-ch-176344.htm); não integra a base de vendas nem representa uma unidade específica.
 
 Projeto educacional independente, sem vínculo oficial com a Porsche. Os dados do exercício não permitem inferir participação de mercado, causalidade ou tendências da população.
