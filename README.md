@@ -73,9 +73,9 @@ Os dados foram convertidos para JSON e incorporados ao HTML. `dados_sanitizados.
 
 > A partir da planilha fornecida, crie uma dashboard HTML/CSS/JavaScript em português, sem inventar dados. Prefira as colunas sanitizadas e preserve o original. Responda: quais modelos concentram mais pedidos e valor em USD; quais anos-modelo têm maior participação; e quais estados concentram mais pedidos e valor. Use barras horizontais com alternância de quantidade/valor para modelos, rosca para ano-modelo e barras agrupadas com dois eixos identificados para estados. Inclua filtros de modelo, ano-modelo, cidade, pagamento e período, Somente entregues e Limpar filtros. Acrescente cartões numéricos, análises de pagamento e status, insights com empates e tabela detalhada. Exclua cancelados das métricas principais; inclua-os no gráfico de status com definição explícita. Datas INVALID entram nos totais sem período e ficam fora de filtros temporais. Não confunda pedidos com vendas concluídas nem soma de preços com receita reconhecida. Use grafite #111215, cartões #202226, texto #F5F5F5, vermelho #D5001C e prata #AEB4BC. Inclua foto verificável do Cayenne Coupé e créditos. Entregue HTML autônomo, responsivo e sem CDN, pronto para GitHub Pages.
 
-### Canvas ou agente com skill?
+### Ferramentas utilizadas
 
-Foi usado o **ChatGPT para gerar e ajustar HTML/CSS/JavaScript**, seguido da aplicação da skill personalizada **Porsche Dashboard Assistant** para orientar análise e implementação. **Não foi utilizado o Canvas de código do ChatGPT**: o painel não estava disponível nesta sessão. A menção ao Canva não corresponde ao Canvas; o Canva não produziu esta dashboard. O resultado foi entregue como arquivo HTML executável no navegador.
+Foi usado o **ChatGPT para gerar e ajustar HTML/CSS/JavaScript**, seguido da aplicação da skill personalizada **Porsche Dashboard Assistant** para orientar análise e implementação. O resultado foi entregue como arquivo HTML executável no navegador.
 
 ## Identidade visual e tecnologia
 
