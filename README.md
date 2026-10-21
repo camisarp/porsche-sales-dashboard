@@ -85,15 +85,15 @@ A taxa é fixa e não é atualizada automaticamente. Não é a cotação histór
 
 ## Identidade visual e tecnologia
 
-| Aplicação | Cor |
-|---|---|
-| Fundo grafite | `#111215` |
-| Cartões | `#202226` |
-| Texto principal | `#F5F5F5` |
-| Texto secundário | `#B6B8BD` |
-| Destaque vermelho | `#D5001C` |
-| Comparação em prata | `#AEB4BC` |
-| Bordas | `#383B40` |
+| Aplicação | Amostra | Código |
+|---|:---:|---|
+| Fundo grafite | ![Fundo grafite](imagens/paleta/111215.svg) | `#111215` |
+| Cartões | ![Cartões](imagens/paleta/202226.svg) | `#202226` |
+| Texto principal | ![Texto principal](imagens/paleta/F5F5F5.svg) | `#F5F5F5` |
+| Texto secundário | ![Texto secundário](imagens/paleta/B6B8BD.svg) | `#B6B8BD` |
+| Destaque vermelho | ![Destaque vermelho](imagens/paleta/D5001C.svg) | `#D5001C` |
+| Comparação em prata | ![Comparação em prata](imagens/paleta/AEB4BC.svg) | `#AEB4BC` |
+| Bordas | ![Bordas](imagens/paleta/383B40.svg) | `#383B40` |
 
 Tipografia declarada: Inter, Helvetica Neue e Arial, usando a primeira disponível no dispositivo. Não há download de fontes. Gráficos em SVG e HTML/CSS; fotografia incorporada ao arquivo; sem bibliotecas externas ou servidor de aplicação.
 
