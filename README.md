@@ -100,11 +100,11 @@ Exemplo reproduzível: **City = Atlanta → 3 registros não cancelados**.
 A versão publicada também foi aberta no navegador remoto. O filtro City = Atlanta foi aplicado e retornou 3 registros, valor total de US$ 434.800 e ano-modelo líder 2025.
 
 <p align="center">
-  <img src="imagens/dashboard-geral.jpg" alt="Visão geral da dashboard publicada" width="600">
+  <img src="imagens/dashboard-geral-hd.png" alt="Visão geral da dashboard publicada" width="900">
 </p>
 
 <p align="center">
-  <img src="imagens/filtro-atlanta.jpg" alt="Dashboard com filtro City = Atlanta" width="600">
+  <img src="imagens/filtro-atlanta-hd.png" alt="Dashboard com filtro City = Atlanta" width="900">
 </p>
 
 ## Estrutura e execução
@@ -114,8 +114,8 @@ porsche-sales-dashboard/
 ├── index.html
 ├── dados_sanitizados.json
 ├── imagens/
-│   ├── dashboard-geral.jpg
-│   └── filtro-atlanta.jpg
+│   ├── dashboard-geral-hd.png
+│   └── filtro-atlanta-hd.png
 ├── testes/
 │   └── dashboard.test.cjs
 └── README.md
