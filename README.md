@@ -1,73 +1,124 @@
-# Porsche Sales Intelligence 🏎️
+# Porsche Sales Dashboard
 
-Dashboard executivo interativo desenvolvido no **Bootcamp Santander – Excel com IA e Claude (DIO)**, a partir de 100 registros de vendas da Porsche.
+Dashboard interativo desenvolvido por **Camila Ribeiro** no contexto do bootcamp **Santander – Excel com IA e Claude**, da DIO. A análise usa exclusivamente os 100 registros da base fornecida e permite explorar modelos, anos-modelo, cidades e pagamentos.
 
-## 🌐 Dashboard publicado
+**[Abrir a dashboard publicada](https://camisarp.github.io/porsche-sales-dashboard/)**
 
-**[Acessar o dashboard](https://camisarp.github.io/porsche-sales-dashboard/)**  
-> O link ficará ativo após habilitar o GitHub Pages em **Settings → Pages → Deploy from a branch → main / (root)**.
+## Perguntas de negócio e escolhas dos gráficos
 
-## Perguntas de negócio
-
-1. **Quais modelos vendem mais?** Para identificar líderes de volume e orientar o mix de produtos.
-2. **Quais cidades geram mais receita?** Para visualizar concentração geográfica do faturamento.
-3. **Quais métodos de pagamento são mais utilizados?** Para compreender preferências de compra.
-
-**Análise complementar:** distribuição por ano do veículo. Os gráficos e indicadores se atualizam com os filtros de **modelo**, **ano**, **cidade** e **pagamento**. Indicadores de topo: quantidade de vendas, receita total, ticket médio e modelo líder.
-
-## Tratamento da base
-
-- Utilização exclusiva dos campos já sanitizados da aba `Sanitized`.
-- Conversão de `SalesPriceSanitized` para valor numérico (USD), `ModelYearSanitized` para inteiro e quilometragem para número.
-- Preservação de `INVALID` como valor ausente (`null`) em datas ou dados não válidos; datas ausentes aparecem como **Sem data**.
-- Conversão de registros para JSON incorporado no HTML para publicação estática, sem depender de servidor.
-- Base original contém **100 registros**; dados sanitizados disponíveis em `dados_sanitizados.json`.
-
-## Processo com IA
-
-**Ferramenta:** ChatGPT, com geração direta de código HTML/CSS/JavaScript. Não foi utilizado agente com skill própria nesta primeira versão.
-
-**Prompt inicial:**
-
-> Crie um dashboard executivo em HTML, CSS e JavaScript, em arquivo único, a partir de 100 vendas sanitizadas da Porsche. Inclua indicadores de vendas, receita, ticket médio e modelo líder; gráficos que respondam quais modelos vendem mais, quais cidades geram mais receita e quais métodos de pagamento predominam; filtros por modelo, cidade, ano e pagamento; visual premium inspirado na Porsche; tabelas para auditoria; dados incorporados para hospedagem no GitHub Pages.
-
-**Refinamentos desta versão:** identidade visual escura com destaque vermelho, responsividade para celular, filtros combináveis, gráficos sem dependências externas, tratamento de dados inválidos, tabela filtrável e insights dinâmicos.
-
-## Identidade visual
-
-| Cor | Hex | Aplicação |
+| Pergunta | Visual | Por que foi escolhida |
 |---|---|---|
-| Grafite | `#0C0F14` | Fundo |
-| Azul escuro | `#161C25` | Cards |
-| Vermelho | `#E31B36` | Destaques/gráficos |
-| Dourado | `#E9BE7A` | Rótulos estratégicos |
-| Branco | `#F8F9FB` | Texto principal |
+| Quais modelos concentram mais pedidos e valor financeiro? | Barras horizontais ordenadas, alternando quantidade e valor em USD | Permite comparar líderes de volume e de valor; o filtro de cidade revela o recorte local. O ranking inclui empates na última posição. |
+| Quais anos-modelo têm maior participação nos pedidos? | Rosca com legenda e informações ao passar o mouse | Apresenta a composição por ano-modelo, com quantidade e participação. O formato foi escolhido durante os ajustes visuais. Ano-modelo não é ano da venda. |
+| Quais estados concentram mais pedidos e valor financeiro? | Barras agrupadas com dois eixos identificados | Compara volume e soma dos valores por estado. As escalas são diferentes: alturas entre séries não devem ser comparadas diretamente. |
 
-Tipografia: Inter com fallback para fontes de sistema.
+A comparação geográfica principal usa **estados** porque, entre os registros não cancelados, existem 73 cidades, das quais 54 aparecem apenas uma vez. Esse volume reduzido não sustenta conclusões sobre preferência de mercado por cidade.
 
-## Estrutura
+Análises complementares: métodos de pagamento, status dos pedidos e leitura executiva calculada. Indicadores de topo: quantidade de registros, valor dos pedidos em USD, valor médio, modelo líder e ano-modelo líder.
+
+## Como explorar
+
+1. Acesse a dashboard e observe o total inicial de **93 pedidos não cancelados**.
+2. Selecione **Atlanta** em **City**: o total passa a **3 registros**. Gráficos, indicadores e insights acompanham a seleção.
+3. Em **Comparar por**, alterne entre quantidade e valor dos pedidos.
+4. Combine Modelo da Porsche, Model Year, City, Pay method e período. Use **Somente entregues** quando quiser esse recorte.
+5. Clique em **Limpar filtros** para retornar ao conjunto inicial.
+
+## Base e tratamento dos dados
+
+Fonte: arquivo fornecido `base sanitizada(1).xlsx`, aba `Sanitized`. O original foi preservado. A planilha já continha campos originais e campos sanitizados; esta etapa utilizou as colunas sanitizadas, sem atribuir à IA uma limpeza que já estava pronta.
+
+| Campo utilizado | Finalidade |
+|---|---|
+| `sale_id` | Identificador do registro |
+| `PorscheModelSanitized` | Modelo |
+| `ModelYearSanitized` | Ano-modelo, convertido para inteiro |
+| `CitySanitized` e `StateSanitized` | Localidade |
+| `PayMethodSanitized` | Método de pagamento |
+| `SaleDateSanitized` | Data válida em formato ISO ou ausência quando `INVALID` |
+| `SalesPriceSanitized` | Valor convertido para número em USD |
+| `DeliveryStatusSanitized` | Situação do pedido |
+
+Verificações e regras:
+
+- **100 registros e 100 identificadores distintos**, sem remoção de duplicatas por suposição.
+- **7 cancelados** excluídos dos indicadores e gráficos principais, restando **93 registros**.
+- O gráfico de **status inclui cancelados**, respeitando os outros filtros; sua população é informada junto ao gráfico. Com Somente entregues, mostra apenas os entregues.
+- **41 registros com status Delivered** na base completa. Pedidos em andamento não são tratados como entregas concluídas.
+- **24 datas marcadas INVALID**, preservadas como ausência. Não houve tentativa de adivinhar datas impossíveis ou ambíguas.
+- Datas inválidas permanecem nas métricas sem filtro temporal; são excluídas quando uma data inicial ou final é aplicada. A quantidade é informada na interface.
+- A base contém datas de **2024 a 2027**; esses registros são dados do exercício, não resultados oficiais atuais.
+- Valores em **USD**, sem conversão para reais. “Valor dos pedidos” é soma dos preços dos registros elegíveis; não representa receita reconhecida. A média usa os mesmos pedidos do recorte.
+- Métodos como Wire Transfer, Bank Transfer e ACH Payment foram mantidos distintos.
+- Apenas campos necessários à análise são publicados. Nomes de clientes e vendedores não estão no HTML nem no JSON desta versão.
+
+Os dados foram convertidos para JSON e incorporados ao HTML. `dados_sanitizados.json` mantém uma cópia dos campos analíticos para conferência; o site funciona sem carregar esse arquivo.
+
+## Processo com IA: prompt e evolução
+
+### Pedido inicial
+
+> Utilizando o recurso de canvas, renderize uma dashboard em HTML ao lado. Inclua filtros por modelo da Porsche, Model Year, City e Pay method. Responda quais os principais modelos vendidos por cidade, qual ano-modelo teve maior saída em um período e apresente insights de vendas por cidade. Baseie o UI/UX no site oficial da Porsche Brasil, com um ar elegante e refinado.
+
+### O que mudou até a versão final
+
+1. A dashboard da [DIO](https://digitalinnovationone.github.io/dashboard_porsche_sales/) passou a ser referência de organização visual e componentes.
+2. A distribuição por ano-modelo foi ajustada para rosca conforme referência enviada; a comparação geográfica principal passou para estados com quantidade e valor em dois eixos.
+3. As perguntas foram refinadas após analisar a baixa quantidade de observações por cidade.
+4. Foram acrescentados alternância de métrica no ranking de modelos, período, Somente entregues, pagamentos e status.
+5. A foto do cabeçalho passou a representar o Cayenne Coupé, um dos cinco modelos empatados com 4 registros não cancelados. A foto ilustra uma versão S, não um veículo específico da base.
+6. A paleta dourada da referência foi substituída por grafite, branco, vermelho e prata, dando identidade própria ao projeto.
+7. O cabeçalho da tabela foi corrigido para manter títulos alinhados às colunas e permitir rolagem horizontal em telas menores.
+
+### Prompt consolidado para reproduzir a direção final
+
+> A partir da planilha fornecida, crie uma dashboard HTML/CSS/JavaScript em português, sem inventar dados. Prefira as colunas sanitizadas e preserve o original. Responda: quais modelos concentram mais pedidos e valor em USD; quais anos-modelo têm maior participação; e quais estados concentram mais pedidos e valor. Use barras horizontais com alternância de quantidade/valor para modelos, rosca para ano-modelo e barras agrupadas com dois eixos identificados para estados. Inclua filtros de modelo, ano-modelo, cidade, pagamento e período, Somente entregues e Limpar filtros. Acrescente cartões numéricos, análises de pagamento e status, insights com empates e tabela detalhada. Exclua cancelados das métricas principais; inclua-os no gráfico de status com definição explícita. Datas INVALID entram nos totais sem período e ficam fora de filtros temporais. Não confunda pedidos com vendas concluídas nem soma de preços com receita reconhecida. Use grafite #111215, cartões #202226, texto #F5F5F5, vermelho #D5001C e prata #AEB4BC. Inclua foto verificável do Cayenne Coupé e créditos. Entregue HTML autônomo, responsivo e sem CDN, pronto para GitHub Pages.
+
+### Canvas ou agente com skill?
+
+Foi usado o **ChatGPT para gerar e ajustar HTML/CSS/JavaScript**, seguido da aplicação da skill personalizada **Porsche Dashboard Assistant** para orientar análise e implementação. **Não foi utilizado o Canvas de código do ChatGPT**: o painel não estava disponível nesta sessão. A menção ao Canva não corresponde ao Canvas; o Canva não produziu esta dashboard. O resultado foi entregue como arquivo HTML executável no navegador.
+
+## Identidade visual e tecnologia
+
+| Aplicação | Cor |
+|---|---|
+| Fundo grafite | `#111215` |
+| Cartões | `#202226` |
+| Texto principal | `#F5F5F5` |
+| Texto secundário | `#B6B8BD` |
+| Destaque vermelho | `#D5001C` |
+| Comparação em prata | `#AEB4BC` |
+| Bordas | `#383B40` |
+
+Tipografia declarada: Inter, Helvetica Neue e Arial, usando a primeira disponível no dispositivo. Não há download de fontes. Gráficos em SVG e HTML/CSS; fotografia incorporada ao arquivo; sem bibliotecas externas ou servidor de aplicação.
+
+## Evidências de funcionamento
+
+O teste automatizado executa a lógica JavaScript do HTML e verifica: total inicial de 93 pedidos, gráfico de status com 100 registros, filtros individuais, seleção combinada sem resultado, limpeza, alternância quantidade/valor, período com exclusão de datas inválidas e 41 entregues. É uma verificação funcional da lógica, não um teste de renderização.
+
+Exemplo reproduzível: **City = Atlanta → 3 registros não cancelados**.
+
+**Prints pendentes:** a captura automática não pôde ser concluída porque o navegador local não estava disponível. Para complementar o portfólio, capturar a visão geral e o recorte City = Atlanta na dashboard publicada. Não foram inseridas imagens simuladas como evidência de execução.
+
+## Estrutura e execução
 
 ```text
 porsche-sales-dashboard/
-├── index.html                # Dashboard completo e publicável
-├── dados_sanitizados.json    # Base transformada para conferência
-└── README.md                 # Documentação do projeto
+├── index.html
+├── dados_sanitizados.json
+├── testes/
+│   └── dashboard.test.cjs
+└── README.md
 ```
 
-## Como executar
+Execute a verificação funcional com `node testes/dashboard.test.cjs`.
 
-Abra o `index.html` em qualquer navegador moderno. Não é necessário instalar bibliotecas nem iniciar servidor.
+Abra `index.html` em um navegador moderno ou utilize o endereço publicado. Para atualizar a base, refaça a extração dos campos sanitizados e a validação das regras; a dashboard não importa novas planilhas automaticamente.
 
-## Como publicar
+Publicação: GitHub Pages, branch `main`, diretório raiz. O histórico anterior do repositório foi preservado.
 
-1. Crie o repositório público `porsche-sales-dashboard` no GitHub.
-2. Envie os três arquivos para a raiz da branch `main`.
-3. Acesse **Settings → Pages**; selecione **Deploy from a branch**, **main** e **/(root)**.
-4. Aguarde a publicação e teste os filtros na URL informada acima.
+## Créditos
 
-## Evidências
+Autoria do projeto: **Camila Ribeiro**. Contexto educacional: Santander e DIO. Referências: [Porsche Brasil](https://www.porsche.com/brazil/pt/) e dashboard da DIO. Fotografia ilustrativa do Cayenne Coupé S: [Caradisiac](https://www.caradisiac.com/porsche-cayenne-coupe-maintenant-en-s-de-440-ch-176344.htm); não integra a base de vendas nem representa uma unidade específica.
 
-Na próxima revisão, adicionar prints da visão geral e de um filtro aplicado na pasta `imagens/`.
-
----
-Projeto educacional de portfólio. Porsche é marca de seus respectivos titulares; não há afiliação oficial.
+Projeto educacional independente, sem vínculo oficial com a Porsche. Os dados do exercício não permitem inferir participação de mercado, causalidade ou tendências da população.
