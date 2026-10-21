@@ -99,13 +99,15 @@ Exemplo reproduzível: **City = Atlanta → 3 registros não cancelados**.
 
 A versão publicada também foi aberta no navegador remoto. O filtro City = Atlanta foi aplicado e retornou 3 registros, valor total de US$ 434.800 e ano-modelo líder 2025.
 
-<p align="center">
-  <img src="imagens/dashboard-geral-hd.png" alt="Visão geral da dashboard publicada" width="900">
-</p>
+<table>
+  <tr><th>Visão geral completa</th><th>Filtro aplicado: Atlanta</th></tr>
+  <tr>
+    <td width="50%" valign="top"><a href="imagens/dashboard-completa.jpg"><img src="imagens/dashboard-completa.jpg" alt="Dashboard completa sem filtros" width="360"></a></td>
+    <td width="50%" valign="top"><a href="imagens/filtro-atlanta-completo.jpg"><img src="imagens/filtro-atlanta-completo.jpg" alt="Dashboard completa com filtro Atlanta" width="360"></a></td>
+  </tr>
+</table>
 
-<p align="center">
-  <img src="imagens/filtro-atlanta-hd.png" alt="Dashboard com filtro City = Atlanta" width="900">
-</p>
+Clique em uma imagem para abrir a captura completa. Para ler os valores e explorar os gráficos, [abra a dashboard interativa](https://camisarp.github.io/porsche-sales-dashboard/).
 
 ## Estrutura e execução
 
