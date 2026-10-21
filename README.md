@@ -48,7 +48,7 @@ Verificações e regras:
 - **24 datas marcadas INVALID**, preservadas como ausência. Não houve tentativa de adivinhar datas impossíveis ou ambíguas.
 - Datas inválidas permanecem nas métricas sem filtro temporal; são excluídas quando uma data inicial ou final é aplicada. A quantidade é informada na interface.
 - A base contém datas de **2024 a 2027**; esses registros são dados do exercício, não resultados oficiais atuais.
-- Valores em **USD**, sem conversão para reais. “Valor dos pedidos” é soma dos preços dos registros elegíveis; não representa receita reconhecida. A média usa os mesmos pedidos do recorte.
+- Valores originais em **USD**, com seletor **USD | BRL** e exibição inicial em reais. “Valor dos pedidos” é soma dos preços dos registros elegíveis; não representa receita reconhecida. A média usa os mesmos pedidos do recorte.
 - Métodos como Wire Transfer, Bank Transfer e ACH Payment foram mantidos distintos.
 - Apenas campos necessários à análise são publicados. Nomes de clientes e vendedores não estão no HTML nem no JSON desta versão.
 
@@ -76,6 +76,12 @@ Os dados foram convertidos para JSON e incorporados ao HTML. `dados_sanitizados.
 ### Ferramentas utilizadas
 
 Foi usado o **ChatGPT para gerar e ajustar HTML/CSS/JavaScript**, seguido da aplicação da skill personalizada **Porsche Dashboard Assistant** para orientar análise e implementação. O resultado foi entregue como arquivo HTML executável no navegador.
+
+## Conversão de moeda
+
+O seletor Moeda alterna USD e BRL em cartões, gráficos e tabela. Os preços originais permanecem em USD. A apresentação em BRL usa **US$ 1 = R$ 5,0140**, cotação **PTAX de venda de 20/10/2026**, publicada pelo [Banco Central](https://ptax.bcb.gov.br/ptax_internet/consultarUltimaCotacaoDolar.do).
+
+A taxa é fixa e não é atualizada automaticamente. Não é a cotação histórica de cada pedido, não inclui tarifas ou impostos e não altera as contagens ou participações. Exemplo: Atlanta, US$ 434.800,00 × 5,0140 = **R$ 2.180.087,20**. Os prints documentam a versão anterior em USD.
 
 ## Identidade visual e tecnologia
 
